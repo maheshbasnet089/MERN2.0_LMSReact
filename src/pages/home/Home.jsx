@@ -8,7 +8,9 @@ const Home = () => {
   const [books,setBooks] = useState([])
   const fetchBooks = async()=>{
    const response =  await axios.get('http://localhost:3000/book')
-   console.log(response)
+  if(response.status === 200){
+    setBooks(response.data.data)
+  }
   }
 
   useEffect(()=>{
@@ -18,12 +20,15 @@ const Home = () => {
     <>
     <Navbar />
  <div className='flex flex-wrap justify-evenly mt-20'>
-    <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
+
+   {
+    books.length > 0 && books.map((book)=>{
+      return (
+        <Card book={book}/>
+      )
+    })
+   }
+
  </div>
     </>
   )
