@@ -37,6 +37,7 @@ const SingleBook = () => {
       {book.publishedAt}
       
     </p>
+    <button className='bg-blue-300 p-2'>Delete</button>
   </div>
     </>
   )
