@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
 
 const SingleBook = () => {
@@ -38,6 +38,9 @@ const SingleBook = () => {
       
     </p>
     <button className='bg-blue-300 p-2'>Delete</button>
+    <Link to={`/editBook/${book._id}`} >
+    <button className='bg-blue-300 p-2 ml-2'>Edit</button>
+    </Link>
   </div>
     </>
   )
